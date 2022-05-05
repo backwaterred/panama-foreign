@@ -25,6 +25,24 @@
 #ifndef CPU_PPC_VM_FOREIGN_GLOBALS_PPC_HPP
 #define CPU_PPC_VM_FOREIGN_GLOBALS_PPC_HPP
 
-class ABIDescriptor {};
+class ABIDescriptor {
+  // TODO: Copied from foreign_globals_aarhc64.hpp. Verify this.
+  GrowableArray<Register> _integer_argument_registers;
+  GrowableArray<Register> _integer_return_registers;
+  GrowableArray<FloatRegister> _vector_argument_registers;
+  GrowableArray<FloatRegister> _vector_return_registers;
+
+  GrowableArray<Register> _integer_additional_volatile_registers;
+  GrowableArray<FloatRegister> _vector_additional_volatile_registers;
+
+  int32_t _stack_alignment_bytes;
+  int32_t _shadow_space_bytes;
+
+  Register _target_addr_reg;
+  Register _ret_buf_addr_reg;
+
+  bool is_volatile_reg(Register reg) const;
+  bool is_volatile_reg(FloatRegister reg) const;
+};
 
 #endif // CPU_PPC_VM_FOREIGN_GLOBALS_PPC_HPP
