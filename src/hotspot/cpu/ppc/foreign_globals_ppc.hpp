@@ -29,7 +29,6 @@
 #include "utilities/growableArray.hpp"
 
 struct ABIDescriptor {
-  // TODO: Copied from foreign_globals_aarhc64.hpp. Verify this.
   GrowableArray<Register> _integer_argument_registers;
   GrowableArray<Register> _integer_return_registers;
   GrowableArray<FloatRegister> _vector_argument_registers;

@@ -28,16 +28,16 @@
 
 // Stubbed out, implement later
 const ABIDescriptor ForeignGlobals::parse_abi_descriptor_impl(jobject jabi) const {
-  Unimplemented();
+  // Unimplemented();
   return {};
 }
 
 const CallRegs ForeignGlobals::parse_call_regs_impl(jobject jconv) const {
-  Unimplemented();
+  // Unimplemented();
   return {};
 }
 
 VMReg ForeignGlobals::vmstorage_to_vmreg(int type, int index) {
-  Unimplemented();
+  // Unimplemented();
   return VMRegImpl::Bad();
 }
