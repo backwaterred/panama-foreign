@@ -25,7 +25,10 @@
 #ifndef CPU_PPC_VM_FOREIGN_GLOBALS_PPC_HPP
 #define CPU_PPC_VM_FOREIGN_GLOBALS_PPC_HPP
 
-class ABIDescriptor {
+#include "asm/macroAssembler.hpp"
+#include "utilities/growableArray.hpp"
+
+struct ABIDescriptor {
   // TODO: Copied from foreign_globals_aarhc64.hpp. Verify this.
   GrowableArray<Register> _integer_argument_registers;
   GrowableArray<Register> _integer_return_registers;
