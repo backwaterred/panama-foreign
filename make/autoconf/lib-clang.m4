@@ -83,7 +83,7 @@ AC_DEFUN_ONCE([LIB_SETUP_LIBCLANG],
         VER=`$LS $with_libclang/lib/clang/ | $GREP "^$LIBCLANG_VERSION" | $TAIL -n1`
         if test "x$VER" = "x"; then
           AC_MSG_ERROR([Can not find libclang version matching the specified version: '$LIBCLANG_VERSION' in
-            $($FIND $with_libclang/lib/clang/ -mindepth 1 -maxdepth 1)])
+            $($FIND $with_libclang/lib/clang/ -prune)])
         fi        
         CLANG_INCLUDE_AUX_PATH="$with_libclang/lib/clang/$VER/include"
         AC_MSG_RESULT([$CLANG_INCLUDE_AUX_PATH])
