@@ -26,18 +26,19 @@
 #include "prims/foreign_globals.hpp"
 #include "utilities/debug.hpp"
 
-// Stubbed out, implement later
 const ABIDescriptor ForeignGlobals::parse_abi_descriptor_impl(jobject jabi) const {
-  // Unimplemented();
-  return {};
+  ABIDescriptor abi;
+
+  // Stub
+  return abi;
 }
 
-const CallRegs ForeignGlobals::parse_call_regs_impl(jobject jconv) const {
-  // Unimplemented();
-  return {};
-}
+// const CallRegs ForeignGlobals::parse_call_regs_impl(jobject jconv) const {
+//   // Stub
+//   return {};
+// }
 
 VMReg ForeignGlobals::vmstorage_to_vmreg(int type, int index) {
-  // Unimplemented();
+  // Stub
   return VMRegImpl::Bad();
 }
