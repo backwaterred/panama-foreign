@@ -42,3 +42,16 @@ VMReg ForeignGlobals::vmstorage_to_vmreg(int type, int index) {
   // Stub
   return VMRegImpl::Bad();
 }
+
+int RegSpiller::pd_reg_size(VMReg reg) {
+  // TODO: Stub
+  return 0;
+}
+
+void RegSpiller::pd_store_reg(MacroAssembler* masm, int offset, VMReg reg) {
+  // TODO: Stub
+}
+
+void RegSpiller::pd_load_reg(MacroAssembler* masm, int offset, VMReg reg) {
+  // TODO: Stub
+}
