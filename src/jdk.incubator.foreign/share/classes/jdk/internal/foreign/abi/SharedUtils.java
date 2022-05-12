@@ -45,6 +45,7 @@ import jdk.internal.foreign.CABI;
 import jdk.internal.foreign.MemoryAddressImpl;
 import jdk.internal.foreign.ResourceScopeImpl;
 import jdk.internal.foreign.Utils;
+import jdk.internal.foreign.abi.ppc64.aix.AixPPC64Linker;
 import jdk.internal.foreign.abi.aarch64.linux.LinuxAArch64Linker;
 import jdk.internal.foreign.abi.aarch64.macos.MacOsAArch64Linker;
 import jdk.internal.foreign.abi.x64.sysv.SysVx64Linker;
@@ -271,10 +272,11 @@ public class SharedUtils {
 
     public static CLinker getSystemLinker() {
         return switch (CABI.current()) {
-            case Win64 -> Windowsx64Linker.getInstance();
-            case SysV -> SysVx64Linker.getInstance();
+            case AixPPC64 -> AixPPC64Linker.getInstance();
             case LinuxAArch64 -> LinuxAArch64Linker.getInstance();
             case MacOsAArch64 -> MacOsAArch64Linker.getInstance();
+            case SysV -> SysVx64Linker.getInstance();
+            case Win64 -> Windowsx64Linker.getInstance();
         };
     }
 
@@ -589,28 +591,31 @@ public class SharedUtils {
 
     public static VaList newVaList(Consumer<VaList.Builder> actions, ResourceScope scope) {
         return switch (CABI.current()) {
-            case Win64 -> Windowsx64Linker.newVaList(actions, scope);
-            case SysV -> SysVx64Linker.newVaList(actions, scope);
+            case AixPPC64 -> AixPPC64Linker.newVaList(actions, scope);
             case LinuxAArch64 -> LinuxAArch64Linker.newVaList(actions, scope);
             case MacOsAArch64 -> MacOsAArch64Linker.newVaList(actions, scope);
+            case SysV -> SysVx64Linker.newVaList(actions, scope);
+            case Win64 -> Windowsx64Linker.newVaList(actions, scope);
         };
     }
 
     public static VaList newVaListOfAddress(MemoryAddress ma, ResourceScope scope) {
         return switch (CABI.current()) {
-            case Win64 -> Windowsx64Linker.newVaListOfAddress(ma, scope);
-            case SysV -> SysVx64Linker.newVaListOfAddress(ma, scope);
+            case AixPPC64 -> AixPPC64Linker.newVaListOfAddress(ma, scope);
             case LinuxAArch64 -> LinuxAArch64Linker.newVaListOfAddress(ma, scope);
             case MacOsAArch64 -> MacOsAArch64Linker.newVaListOfAddress(ma, scope);
+            case SysV -> SysVx64Linker.newVaListOfAddress(ma, scope);
+            case Win64 -> Windowsx64Linker.newVaListOfAddress(ma, scope);
         };
     }
 
     public static VaList emptyVaList() {
         return switch (CABI.current()) {
-            case Win64 -> Windowsx64Linker.emptyVaList();
-            case SysV -> SysVx64Linker.emptyVaList();
+            case AixPPC64 -> AixPPC64Linker.emptyVaList();
             case LinuxAArch64 -> LinuxAArch64Linker.emptyVaList();
             case MacOsAArch64 -> MacOsAArch64Linker.emptyVaList();
+            case SysV -> SysVx64Linker.emptyVaList();
+            case Win64 -> Windowsx64Linker.emptyVaList();
         };
     }
 

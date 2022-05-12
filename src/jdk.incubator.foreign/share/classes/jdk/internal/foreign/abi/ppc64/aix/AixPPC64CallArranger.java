@@ -1,11 +1,13 @@
 /*
- * Copyright (c) 2020 SAP SE. All rights reserved.
- * Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2022, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2021, Arm Limited. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
  *
  * This code is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
@@ -21,40 +23,11 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+package jdk.internal.foreign.abi.ppc64.aix;
 
-#include "precompiled.hpp"
-#include "prims/foreign_globals.hpp"
-#include "utilities/debug.hpp"
+import jdk.internal.foreign.abi.ppc64.*;
 
 /**
- * Given ***, create a new ABIDescriptor.
+ * PPC64 CallArranger specialized for AIX.
  */
-const ABIDescriptor ForeignGlobals::parse_abi_descriptor_impl(jobject jabi) const {
-  ABIDescriptor abi;
-
-  // TODO: Stub
-  Unimplemented();
-  return abi;
-}
-
-VMReg ForeignGlobals::vmstorage_to_vmreg(int type, int index) {
-  // Stub
-  Unimplemented();
-  return VMRegImpl::Bad();
-}
-
-int RegSpiller::pd_reg_size(VMReg reg) {
-  // TODO: Stub
-  Unimplemented();
-  return 0;
-}
-
-void RegSpiller::pd_store_reg(MacroAssembler* masm, int offset, VMReg reg) {
-  // TODO: Stub
-  Unimplemented();
-}
-
-void RegSpiller::pd_load_reg(MacroAssembler* masm, int offset, VMReg reg) {
-  // TODO: Stub
-  Unimplemented();
-}
+public class AixPPC64CallArranger extends CallArranger {}

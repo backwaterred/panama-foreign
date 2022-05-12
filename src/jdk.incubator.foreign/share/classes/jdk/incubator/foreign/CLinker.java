@@ -27,6 +27,7 @@ package jdk.incubator.foreign;
 
 import jdk.internal.foreign.SystemLookup;
 import jdk.internal.foreign.abi.SharedUtils;
+import jdk.internal.foreign.abi.ppc64.aix.AixPPC64Linker;
 import jdk.internal.foreign.abi.aarch64.linux.LinuxAArch64Linker;
 import jdk.internal.foreign.abi.aarch64.macos.MacOsAArch64Linker;
 import jdk.internal.foreign.abi.x64.sysv.SysVx64Linker;
@@ -142,7 +143,7 @@ import java.util.Optional;
  * @implSpec
  * Implementations of this interface are immutable, thread-safe and <a href="{@docRoot}/java.base/java/lang/doc-files/ValueBased.html">value-based</a>.
  */
-public sealed interface CLinker extends SymbolLookup permits Windowsx64Linker, SysVx64Linker, LinuxAArch64Linker, MacOsAArch64Linker {
+public sealed interface CLinker extends SymbolLookup permits AixPPC64Linker, LinuxAArch64Linker, MacOsAArch64Linker, SysVx64Linker, Windowsx64Linker {
 
     /**
      * Returns the C linker for the current platform.
