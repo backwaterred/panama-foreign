@@ -56,7 +56,7 @@ public enum CABI {
                 // The Linux ABI follows the standard AAPCS ABI
                 current = LinuxAArch64;
             }
-        } else if (arch.equals("ppc") && os.startsWith("Aix")) {
+        } else if (arch.equals("ppc64") && os.startsWith("AIX")) {
             current = AixPPC64;
         } else {
             throw new ExceptionInInitializerError(
